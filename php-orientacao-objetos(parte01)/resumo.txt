@@ -1,0 +1,13 @@
+PHP - orientação a objetos (parte 1)
+
+- Não podemos dar echo em objetos.
+- Para referenciar uma propriedade usamos "->prop:
+$conta = new Conta();
+$conta->titular = "João";
+
+-Construtor:
+
+public function __constructor($titular){
+
+	$this->titular = $titular;
+}
