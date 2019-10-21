@@ -7,7 +7,7 @@ $conta->titular = "João";
 
 -Construtor:
 
-public function __constructor($titular){
+public function __construct($titular){
 
 	$this->titular = $titular;
 }
