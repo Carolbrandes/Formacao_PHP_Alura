@@ -1,0 +1,18 @@
+PHP - orientação a objetos (parte 1)
+
+- Não podemos dar echo em objetos.
+- Para referenciar uma propriedade usamos "->prop:
+$conta = new Conta();
+$conta->titular = "João";
+
+-em funções que não possuem retorno, podemos retornar a própria conta para fazer operações encadeadas.
+-Função is_numeric($valor) - verifica se a variavel e um numero ou uma string numerica. Se na string ter um numero, ele faz a conversao.
+-Metodos magicos, sempre inicia com __metodo, metodos já vistos na aula o __construct, __set  e __get.
+-__toString - só retorna string e qd implementamos na classe não podemos retorna o objeto ou um array. 
+
+-Construtor:
+
+public function __construct($titular){
+
+	$this->titular = $titular;
+}

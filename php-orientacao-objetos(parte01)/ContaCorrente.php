@@ -25,25 +25,41 @@ class ContaCorrente
     $this->saldo += $valor;
   }
 
+  public function transferir(float $valor, ContaCorrente $conta): void
+  {
+    $this->sacar($valor);
+    $conta->depositar($valor);
+  }
+
+  public function __toString()
+  {
+    return "Titular: $this->titular <br>
+    Ag: $this->agencia <br>
+    Cc: $this->conta<br>
+    saldo: " . $this->formataSaldo();
+  }
+
   // para acessar fora da classe: $conta1 -> propriedade
   public function __get($propriedade)
   {
     return $this->$propriedade;
 
-    if($propriedade == "saldo"){
+    if ($propriedade == "saldo") {
       formataSaldo();
     }
   }
 
-  public function __set($propriedade, $value)
+  public function __set($propriedade, $valor)
   {
-    if ($propriedade != "titular" && $propriedade != "saldo") {
-      $this->$propriedade = $valor;
-    }
+    // metodo estatico da classe validacao
+    Validacao::protegeAtributo($propriedade);
+    $this->$propriedade = $valor;
   }
 
   private function formataSaldo()
   {
     return "R$ " . number_format($this->saldo, 2, ",", ".");
   }
+
+  
 }
