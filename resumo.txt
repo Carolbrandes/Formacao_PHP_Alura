@@ -1,3 +1,12 @@
+servidor php:
+
+No terminal, acessaremos a pasta do nosso projeto ("php-primeiros-passos\avancando") e 
+executaremos php -S localhost:8080 para subirmos um servidor. Se quiser, você pode 
+utilizar uma porta diferente. 
+Em seguida, acessaremos http://localhost:8080/
+
+
+---------------------------------------------------------------
 PHP - orientação a objetos (parte 1)
 
 - Não podemos dar echo em objetos.
@@ -16,3 +25,37 @@ public function __construct($titular){
 
 	$this->titular = $titular;
 }
+
+
+
+----------------------------------------------------------------
+PHP - orientação a objetos (parte 2)
+
+1) Namespace: Para o namespace funcionar precisamos implementar o autoload.
+2) vamos criar o arquivo autoload.php que será responsável por carregar todas as classes do nosso projeto.
+O ganho e que carregamos apenas as classes necessárias.
+Nesse arquivo vamos criar a funcao load que receberá como parametro uma variavel q chamamos de namespace.
+E embaixo vamos utilizar o metodo spl_autoload_register(load()) que vai receber a funcao load. Esse metodo
+recebe um unico parametro, toda vez q nos instanciarmos um objeto o php vai chamar esse metodo spl_autoload_register q vai chamar
+nossa funcao responsavel por fazer o carregamento das classes.
+
+ex: spl_autoload_register(__NAMESPACE__ . "\load")
+
+3) Vamos usar a função str_replace para trocar a \\ por /.   $namespace = str_replace("\\","/", $namespace);
+4) depois vamos criar uma variavel chamada de caminho absoluto q onde vai ser carregadas as classes.
+Para isso vamos usar o __DIR__ que é o diretório.
+$caminhoAbsoluto = __DIR__ . "/" . $namespace . ".php";
+5) Criando a classe diretor, temos que colocar um namespace que é namespace classes\funcionarios;
+6) no index antes de instanciarmos a classe precisamos usar o use classes\funcionarios\Diretor; Agora
+ao inves de criar o tipo Diretor, ele cria o tipo classes\funcionarios\Diretor.
+
+Obs: só precisamos o usar o use.. quando a classe esta em um diretorio diferente de onde eu estou chamando.
+
+7) Caso tenhamos uma classe com mesmo nome porém em um diretório diferente, quando fomos usar o use
+temos que colocar um apelido nela para não confudir o autoload. Ex: use classes\Diretor as teste;
+
+8) quando usamos heranca, na classe que está herdando precisamos incluir o use e colocar o namespace
+da classe que será herdada.
+
+9) quando tentamos acessar um propriedade q não existe dentro da classe, o php cria esse atributo. Porém 
+não sera um atributo que pertenca a classe. 
