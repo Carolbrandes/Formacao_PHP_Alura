@@ -59,3 +59,8 @@ da classe que será herdada.
 
 9) quando tentamos acessar um propriedade q não existe dentro da classe, o php cria esse atributo. Porém 
 não sera um atributo que pertenca a classe. 
+
+10) Polimorfismo - quando subescrevemos um metodo da classe pai.
+
+11) A classe abstrata não pode ser instanciada. Um metodo abstrato deve ser implementado pelas
+classes filhas não abstratas.
