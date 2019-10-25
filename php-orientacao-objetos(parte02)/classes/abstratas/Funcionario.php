@@ -14,11 +14,13 @@ abstract class Funcionario{
         $this->salario = $salario;
     }
 
-    // public function __set($atributo, $valor)
-    // {
-        
-    //     $this->$atributo = $valor;
-    // }
+    public function __set($atributo, $valor)
+    {
+     if($atributo != "salario"){
+
+         $this->$atributo = $valor;
+     }   
+    }
 
     abstract public function getBonificacao() : float;
 
