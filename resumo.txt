@@ -64,3 +64,5 @@ não sera um atributo que pertenca a classe.
 
 11) A classe abstrata não pode ser instanciada. Um metodo abstrato deve ser implementado pelas
 classes filhas não abstratas.
+
+12) os metodos de uma interface devem ser publicos.
