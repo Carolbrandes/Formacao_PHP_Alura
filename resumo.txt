@@ -66,3 +66,21 @@ não sera um atributo que pertenca a classe.
 classes filhas não abstratas.
 
 12) os metodos de uma interface devem ser publicos.
+
+13) Qd colocamos final antes de uma classe ou metodo, as classes que herdam não podem sobrescrever o metodo
+ou a classe.
+
+14) No php não podemos ter metodos com mesmo nome na classe q se subescrevem. Para isso temos metodos magicos.
+
+15) podemos passar um valor default para um argumento.Mas nesse caso,
+ele nao vai reconhecer a variavel piso pq ela nao foi instanciada.
+Então vamos coloca-la como uma constante.
+public function __construct($cpf, $salario = self::$pisoSalarial){}
+
+16) funcao para saber numero de argumentos de uma funcao: func_num_args()
+
+-----------------------------------------------------------------------------
+
+Arrays:
+
+1) Para retorna um float ou null: public function x (): ?float {}

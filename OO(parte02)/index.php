@@ -4,7 +4,6 @@ include "autoload.php";
 use classes\funcionario\Designer;
 use classes\funcionario\Diretor;
 use classes\sistemaInterno\GerenciadorBonificacao;
-use classes\funcionario\ListaFuncionario;
 
 
 $diretor = new Diretor("Manuel", "222.222.222-22", 25000, 55);
