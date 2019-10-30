@@ -1,7 +1,7 @@
 <?php
 
 function load ($namespace) {
-      $namespace = str_replace("\\", "/", $namespace);
+      $namespace = str_replace("\\", DIRECTORY_SEPARATOR, $namespace);
 
       $caminhoArquivo = __DIR__ . "/" . $namespace . ".php";
 
