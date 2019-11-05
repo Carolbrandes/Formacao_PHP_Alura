@@ -2,8 +2,10 @@
 
 namespace classes\banco;
 
+
 class Banco{
         private $nome;
+        private $listaAgencias;
 
         public function __construct(string $nome)
         {
@@ -13,5 +15,9 @@ class Banco{
         public function __get($name)
         {
                 return $this->$name;
+        }
+
+        public function adicionarAgencia (Agencia $agencia): void{
+                $this->listaAgencias[] = $agencia;
         }
 }

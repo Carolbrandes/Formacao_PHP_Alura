@@ -3,19 +3,18 @@
 namespace classes\clientes;
 use classes\abstratas\Conta;
 use classes\contas\Cc;
-use classes\banco\Banco;
 use classes\banco\Agencia;
 
 class Titular{
         private $nome;
         private $listaContas;
 
-        public function __construct(string $nome, Banco $banco, Agencia $agencia, string $numero, string $tipoConta)
+        public function __construct(string $nome, Agencia $agencia, string $numero, string $tipoConta)
         {
                 $this->nome = $nome;
 
                 if($tipoConta == "cc"){
-                        $conta = new Cc($this,$banco, $agencia, $numero );
+                        $conta = new Cc($this, $agencia, $numero );
                 }
 
                 $this->adicionarConta($conta);
