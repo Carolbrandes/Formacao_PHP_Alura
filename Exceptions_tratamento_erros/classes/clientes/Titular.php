@@ -1,36 +1,35 @@
 <?php
 
 namespace classes\clientes;
-
 use classes\abstratas\Conta;
+use classes\contas\Cc;
+use classes\banco\Banco;
+use classes\banco\Agencia;
 
-class Titular
-{
+class Titular{
         private $nome;
-        private $cpf;
-        private $listaConta = [];
+        private $listaContas;
 
-        function __construct(string $nome, string $cpf, Conta $conta)
+        public function __construct(string $nome, Banco $banco, Agencia $agencia, string $numero, string $tipoConta)
         {
                 $this->nome = $nome;
-                $this->cpf = $cpf;
+
+                if($tipoConta == "cc"){
+                        $conta = new Cc($this,$banco, $agencia, $numero );
+                }
+
                 $this->adicionarConta($conta);
 
-                $conta->agencia->adicionarCliente(this);
+                $agencia->adicionarCliente($this);
         }
 
-        function __get($atributo)
+        public function __get($name)
         {
-                return $this->$atributo;
+                return $this->$name;
         }
 
-        public function alterarNome(string $nome): void
-        {
-                $this->nome = $nome;
+        public function adicionarConta(Conta $conta){
+                $this->listaContas[] = $conta;
         }
 
-        public function adicionarConta(Conta $conta): void
-        {
-                $this->listaConta[] = $conta;
-        }
 }

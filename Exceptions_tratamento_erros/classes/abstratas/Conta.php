@@ -1,39 +1,25 @@
-<?php
+<?php 
 
 namespace classes\abstratas;
 
-use classes\clientes\Titular;
 use classes\banco\Agencia;
+use classes\banco\Banco;
+use classes\clientes\Titular;
 
-abstract class Conta
-{
+abstract class Conta{
+        private $banco;
         private $agencia;
-        private $numeroConta;
-        private $saldo = 0;
+        private $numero;
 
-
-        public function __construct(Agencia $agencia, string $numeroConta)
+        public function __construct(Titular $titular, Banco $banco, Agencia $agencia, string $numero)
         {
+                $this->banco = $banco;
                 $this->agencia = $agencia;
-                $this->numeroConta = $numeroConta;
+                $this->numero = $numero;
         }
 
-        public function __get($atributo)
+        public function __get($name)
         {
-                return $atributo != "saldo" ? $this->$atributo : "Não é possível exibir o saldo!";
-        }
-
-        public abstract function sacar(float $valor);
-
-        public abstract function transferir(float $valor, Conta $conta);
-
-        public function depositar(float $valor):void
-        {
-                $this->saldo += $valor;
-        }
-
-        public function exibirSaldo()
-        {
-                return number_format($this->saldo, 2, ".", ",");
+                return $this->$name;
         }
 }

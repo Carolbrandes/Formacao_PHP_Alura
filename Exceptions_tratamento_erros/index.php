@@ -1,22 +1,40 @@
 <?php
-Declare(strict_types = 1);
+
 require_once "autoload.php";
+
 use classes\banco\Agencia;
-use classes\contas\ContaCorrente;
+use classes\banco\Banco;
 use classes\clientes\Titular;
+use classes\contas\Cc;
 
-// criar agencia
-// criar conta
-// criar cliente
-
+$banco = new Banco("Banco");
 $agencia = new Agencia("2222");
-$conta = new ContaCorrente($agencia, "11111-1");
-$titular = new Titular("Ana Paula", "111.111.111-11", $conta);
+$cliente = new Titular("José", $banco, $agencia, "2222-22", "cc");
 
-$lista = $agencia->listaClientes;
+echo "<h2>Lista clientes Agencia:</h2>";
 echo "<pre>";
-var_dump($lista);
+var_dump($agencia->listaCliente);
 echo "</pre>";
+
+echo "<br><br>";
+
+echo "<h2>Lista contas cliente:</h2>";
+echo "<pre>";
+var_dump($cliente->listaContas);
+echo "</pre>";
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
