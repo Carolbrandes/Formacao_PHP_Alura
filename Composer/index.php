@@ -1,11 +1,10 @@
 <?php
 
-use GuzzleHttp\Client;
-use src\BuscadorCursos;
-use Symfony\Component\DomCrawler\Crawler;
-
 require 'vendor/autoload.php';
-require 'src/buscadorCursos.php';
+
+use GuzzleHttp\Client;
+use Alura\BuscadorCursos\BuscadorCursos;
+use Symfony\Component\DomCrawler\Crawler;
 
 
 $client = new Client(['base_uri' => 'https://www.alura.com.br/' ]);
